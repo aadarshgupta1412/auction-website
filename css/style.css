@@ -14,14 +14,36 @@ body {
 header {
     background-color: #1a237e;
     color: white;
-    padding: 1rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+header .controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.header-button {
+    background: #2196f3;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.header-button:hover {
+    background: #1976d2;
 }
 
 button {
@@ -47,42 +69,56 @@ main {
 
 /* Teams section */
 .teams-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem;
+    flex-wrap: wrap;
 }
 
-.team {
+.team-panel {
     background: white;
-    padding: 1.5rem;
     border-radius: 8px;
+    padding: 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 1rem;
 }
 
-.team h3 {
+.team-panel h3 {
     color: #1a237e;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
+    margin: 0 0 1.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.team-stats {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+.team-stats .stat {
+    margin: 0.5rem 0;
+    color: #424242;
+    font-size: 0.95rem;
+}
+
+.team-panel.team-a {
+    border-top: 4px solid #2196f3;
+}
+
+.team-panel.team-b {
+    border-top: 4px solid #f44336;
 }
 
 .player-list {
-    min-height: 200px;
-    margin-bottom: 1rem;
-}
-
-.team-player {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.5rem;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.team-player:hover {
-    background-color: #f5f5f5;
+    min-height: 100px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1rem;
 }
 
 /* Available players section */
@@ -522,6 +558,69 @@ main {
     }
 }
 
+/* Player status colors */
+.player-card.available {
+    background: white;
+}
+
+.player-card.bidding {
+    background: #fff3e0;
+    border: 1px solid #ffd54f;
+}
+
+.player-card.sold {
+    background: #e8f5e9;
+    border: 1px solid #81c784;
+}
+
+.player-card.unsold {
+    background: #ffebee;
+    border: 1px solid #e57373;
+}
+
+.status-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-badge.sold {
+    background: #81c784;
+    color: white;
+}
+
+.status-badge.bidding {
+    background: #ffd54f;
+    color: #333;
+}
+
+.status-badge.unsold {
+    background: #e57373;
+    color: white;
+}
+
+.team-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.team-badge.team-a {
+    background: #2196f3;
+    color: white;
+}
+
+.team-badge.team-b {
+    background: #f44336;
+    color: white;
+}
+
 /* Clear Bidding Button */
 .clear-bidding-btn {
     position: absolute;
@@ -749,138 +848,93 @@ main {
 
 /* Auction page styles */
 .auction-page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #f5f5f5;
-    z-index: 1000;
-    overflow-y: auto;
     padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .auction-container {
-    max-width: 1000px;
-    margin: 0 auto;
     background: white;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .current-player {
-    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
     margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+    padding: 1.5rem;
+    background: #f5f5f5;
+    border-radius: 8px;
 }
 
-.current-player img {
+.current-player .player-image {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.current-player .player-info {
+    flex: 1;
 }
 
 .current-player h2 {
+    margin: 0 0 1rem 0;
     color: #1a237e;
-    font-size: 2rem;
-    margin-bottom: 1rem;
 }
 
 .player-sports {
     display: flex;
     gap: 0.5rem;
-    justify-content: center;
     flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
 .sport-tag {
+    padding: 0.25rem 0.75rem;
     background: #e3f2fd;
-    color: #1976d2;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    color: #1565c0;
+    border-radius: 12px;
+    font-size: 0.875rem;
 }
 
-.bidding-section {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.current-price {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.current-price h3 {
+.base-price {
+    margin-top: 1rem;
+    font-size: 1.25rem;
     color: #1a237e;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
-.price-amount {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #2196f3;
-    margin-bottom: 0.5rem;
+.bid-timer {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: #f44336;
 }
 
 .last-bidder {
+    margin-top: 0.5rem;
     color: #666;
-    font-size: 0.9rem;
 }
 
-.team-controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.team-a-controls, .team-b-controls {
-    text-align: center;
-}
-
-.team-controls h3 {
-    color: #1a237e;
-    margin-bottom: 1rem;
-}
-
-.team-controls button {
-    width: 100%;
-    margin-bottom: 0.5rem;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 6px;
-    background: #2196f3;
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.team-controls button:hover {
-    background: #1976d2;
-}
-
+/* Admin controls in auction page */
 .admin-controls {
     display: flex;
     gap: 1rem;
-    justify-content: center;
     margin-top: 2rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     border-top: 1px solid #eee;
 }
 
 .admin-controls button {
-    padding: 0.75rem 1.5rem;
+    flex: 1;
+    padding: 0.75rem;
     border: none;
-    border-radius: 6px;
-    font-weight: 500;
+    border-radius: 4px;
     cursor: pointer;
+    font-weight: 500;
     transition: all 0.2s;
 }
 
@@ -889,15 +943,219 @@ main {
     color: white;
 }
 
+.admin-controls .secondary-button {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
 .admin-controls .primary-button:hover {
     background: #1976d2;
 }
 
-.admin-controls .secondary-button {
-    background: #e3f2fd;
-    color: #1976d2;
-}
-
 .admin-controls .secondary-button:hover {
     background: #bbdefb;
+}
+
+/* Admin mode specific styles */
+.start-auction-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: none; /* Hidden by default */
+}
+
+.admin-mode .start-auction-btn {
+    display: block; /* Show only in admin mode */
+}
+
+.start-auction-btn:hover {
+    background: #1976d2;
+}
+
+/* Filter controls */
+.filter-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-controls select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    min-width: 150px;
+}
+
+/* Team stats container */
+.team-stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.team-stats-panel {
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.team-stats-panel:first-child {
+    background: #e3f2fd;
+}
+
+.team-stats-panel:last-child {
+    background: #ffebee;
+}
+
+.team-stats-panel h3 {
+    margin: 0 0 0.5rem 0;
+    color: #1a237e;
+}
+
+/* Admin/User mode specific styles */
+.admin-mode .admin-only {
+    display: block;
+}
+
+.user-mode .admin-only {
+    display: none;
+}
+
+.danger-button {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.danger-button:hover {
+    background: #d32f2f;
+}
+
+header .admin-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+header .admin-controls button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+header .admin-controls .secondary-button {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+header .admin-controls .secondary-button:hover {
+    background: #bbdefb;
+}
+
+/* Player grid */
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.player-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.player-card:hover {
+    transform: translateY(-2px);
+}
+
+.player-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.player-card h3 {
+    color: #1a237e;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.player-details {
+    color: #424242;
+    font-size: 0.9rem;
+}
+
+.player-details p {
+    margin: 0.25rem 0;
+}
+
+.player-card.available {
+    border-left: 4px solid #4caf50;
+}
+
+.player-card.bidding {
+    border-left: 4px solid #ff9800;
+}
+
+.player-card.sold {
+    border-left: 4px solid #2196f3;
+}
+
+.auction-button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.auction-button:hover {
+    background: #1976d2;
+}
+
+/* Team player list */
+.team-player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.team-player:last-child {
+    border-bottom: none;
 }

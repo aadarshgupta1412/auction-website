@@ -9,12 +9,10 @@
 <body>
     <header>
         <h1>Tournament Auction</h1>
-        <div id="login-section">
-            <button id="admin-login" onclick="window.adminHandler.showLoginPrompt()">Admin Login</button>
-        </div>
-        <div id="admin-controls" class="hidden">
-            <button onclick="window.adminHandler.logout()">Logout</button>
-            <button onclick="window.showAddPlayerModal()">Add Player</button>
+        <div class="controls">
+            <button id="admin-login" class="header-button">Admin Login</button>
+            <button id="restore-data" onclick="window.dataHandler.restorePlayersFromJSON()" class="header-button hidden">Restore Players Data</button>
+            <button id="add-player" onclick="window.showAddPlayerModal()" class="header-button hidden">Add Player</button>
         </div>
     </header>
 
@@ -26,15 +24,24 @@
         </section>
 
         <div class="teams-section">
-            <div class="team">
+            <div class="team-panel team-a">
                 <h3>Team A</h3>
+                <div class="team-stats">
+                    <div class="stat">Players: <span id="team-a-players-count">0</span></div>
+                    <div class="stat">Spent: ₹<span id="team-a-spent">0</span> Lakhs</div>
+                    <div class="stat">Remaining: ₹<span id="team-a-remaining">1000</span> Lakhs</div>
+                </div>
                 <div id="team-a-players" class="player-list"></div>
-                <p>Total Spent: ₹<span id="team-a-total">0</span> Lakhs</p>
             </div>
-            <div class="team">
+
+            <div class="team-panel team-b">
                 <h3>Team B</h3>
+                <div class="team-stats">
+                    <div class="stat">Players: <span id="team-b-players-count">0</span></div>
+                    <div class="stat">Spent: ₹<span id="team-b-spent">0</span> Lakhs</div>
+                    <div class="stat">Remaining: ₹<span id="team-b-remaining">1000</span> Lakhs</div>
+                </div>
                 <div id="team-b-players" class="player-list"></div>
-                <p>Total Spent: ₹<span id="team-b-total">0</span> Lakhs</p>
             </div>
         </div>
 

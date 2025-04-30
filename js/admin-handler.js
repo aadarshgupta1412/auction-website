@@ -10,32 +10,37 @@ class AdminHandler {
 
     setupAdminControls() {
         const loginButton = document.getElementById('admin-login');
-        const adminControls = document.getElementById('admin-controls');
+        const restoreButton = document.getElementById('restore-data');
+        const addPlayerButton = document.getElementById('add-player');
         
-        if (loginButton && adminControls) {
-            loginButton.addEventListener('click', () => this.showLoginPrompt());
+        if (loginButton) {
+            loginButton.addEventListener('click', () => {
+                if (this.isAdmin) {
+                    this.logout();
+                } else {
+                    this.showLoginPrompt();
+                }
+            });
             
             // Check if we were previously logged in
             const wasAdmin = localStorage.getItem('isAdmin') === 'true';
             if (wasAdmin) {
-                this.isAdmin = true;
-                loginButton.classList.add('hidden');
-                adminControls.classList.remove('hidden');
-                window.dataHandler.isAdmin = true;
+                this.setAdminMode(true);
             }
         }
     }
 
     showLoginPrompt() {
         const username = prompt("Enter admin username:");
+        if (!username) return; // User cancelled
+
         if (username === ADMIN_USERNAME) {
             const password = prompt("Enter admin password:");
+            if (!password) return; // User cancelled
+
             if (password === ADMIN_PASSWORD) {
-                this.isAdmin = true;
+                this.setAdminMode(true);
                 localStorage.setItem('isAdmin', 'true');
-                document.getElementById('admin-login').classList.add('hidden');
-                document.getElementById('admin-controls').classList.remove('hidden');
-                window.dataHandler.isAdmin = true;
                 alert('Logged in as admin');
             } else {
                 alert('Invalid credentials');
@@ -45,12 +50,31 @@ class AdminHandler {
         }
     }
 
+    setAdminMode(isAdmin) {
+        this.isAdmin = isAdmin;
+        const loginButton = document.getElementById('admin-login');
+        const restoreButton = document.getElementById('restore-data');
+        const addPlayerButton = document.getElementById('add-player');
+
+        if (loginButton) {
+            loginButton.textContent = isAdmin ? 'Exit Admin Mode' : 'Admin Login';
+        }
+        if (restoreButton) {
+            restoreButton.classList.toggle('hidden', !isAdmin);
+        }
+        if (addPlayerButton) {
+            addPlayerButton.classList.toggle('hidden', !isAdmin);
+        }
+
+        if (window.dataHandler) {
+            window.dataHandler.setAdminStatus(isAdmin);
+        }
+    }
+
     logout() {
-        this.isAdmin = false;
         localStorage.removeItem('isAdmin');
-        document.getElementById('admin-login').classList.remove('hidden');
-        document.getElementById('admin-controls').classList.add('hidden');
-        window.dataHandler.isAdmin = false;
+        this.setAdminMode(false);
+        window.location.reload();
     }
 
     isAdminUser() {
@@ -58,7 +82,7 @@ class AdminHandler {
     }
 }
 
-// Initialize admin handler
+// Initialize admin handler after DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Initializing admin handler");
     window.adminHandler = new AdminHandler();
