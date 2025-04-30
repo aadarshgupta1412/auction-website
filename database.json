@@ -1,0 +1,89 @@
+{
+  "playersMaster": {
+    "player1": {
+      "id": "1682847162000",
+      "name": "Rahul Kumar",
+      "image": "https://i.pravatar.cc/300?img=11",
+      "pitch": "State-level chess player with experience in organizing tournaments. Also play football as striker. Known for strategic gameplay and quick decision making.",
+      "interestedGames": ["Chess", "Football", "Table Tennis"],
+      "basePrice": 20
+    },
+    "player2": {
+      "id": "1682847162001",
+      "name": "Priya Singh",
+      "image": "https://i.pravatar.cc/300?img=5",
+      "pitch": "Professional badminton player with district-level achievements. Also enjoy carrom and chess. Strong in both singles and doubles formats.",
+      "interestedGames": ["Badminton Singles", "Badminton Doubles", "Carrom", "Chess"],
+      "basePrice": 20
+    },
+    "player3": {
+      "id": "1682847162002",
+      "name": "Alex D'Souza",
+      "image": "https://i.pravatar.cc/300?img=15",
+      "pitch": "Table tennis enthusiast with 5 years of competitive experience. Also skilled in carrom and chess. Quick reflexes and strategic mindset.",
+      "interestedGames": ["Table Tennis", "Carrom", "Chess"],
+      "basePrice": 20
+    },
+    "player4": {
+      "id": "1682847162003",
+      "name": "Meera Patel",
+      "image": "https://i.pravatar.cc/300?img=20",
+      "pitch": "Multi-sport athlete specializing in basketball and volleyball. Team player with leadership experience. Also enjoy chess for strategic thinking.",
+      "interestedGames": ["Basketball", "Volleyball", "Chess"],
+      "basePrice": 20
+    }
+  },
+  "auctions": {
+    "player1": {
+      "id": "1682847162000",
+      "status": "available",
+      "currentPrice": 20,
+      "team": null,
+      "bidHistory": {},
+      "lastBidTime": null,
+      "lastBidder": null
+    },
+    "player2": {
+      "id": "1682847162001",
+      "status": "available",
+      "currentPrice": 20,
+      "team": null,
+      "bidHistory": {},
+      "lastBidTime": null,
+      "lastBidder": null
+    },
+    "player3": {
+      "id": "1682847162002",
+      "status": "available",
+      "currentPrice": 20,
+      "team": null,
+      "bidHistory": {},
+      "lastBidTime": null,
+      "lastBidder": null
+    },
+    "player4": {
+      "id": "1682847162003",
+      "status": "available",
+      "currentPrice": 20,
+      "team": null,
+      "bidHistory": {},
+      "lastBidTime": null,
+      "lastBidder": null
+    }
+  },
+  "teams": {
+    "A": {
+      "budget": 1000,
+      "spent": 0,
+      "players": {}
+    },
+    "B": {
+      "budget": 1000,
+      "spent": 0,
+      "players": {}
+    }
+  },
+  "admins": {
+    "dummy-user": true
+  }
+}
