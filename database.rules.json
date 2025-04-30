@@ -1,0 +1,15 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "players": {
+      ".read": true,
+      ".write": true,
+      "$playerId": {
+        ".read": true,
+        ".write": true,
+        ".validate": "newData.hasChildren(['name', 'image', 'pitch', 'interestedGames', 'currentPrice', 'status'])"
+      }
+    }
+  }
+}
