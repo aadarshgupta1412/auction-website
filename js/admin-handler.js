@@ -1,6 +1,6 @@
 // Admin credentials
-const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'auction2025';
+const ADMIN_USERNAME = 'ADMIN_USERNAME'; // Replace with your admin username
+const ADMIN_PASSWORD = 'ADMIN_PASSWORD'; // Replace with your admin password
 
 class AdminHandler {
     constructor() {

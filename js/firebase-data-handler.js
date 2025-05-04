@@ -424,9 +424,9 @@ class FirebaseDataHandler {
         if (!this.isAdmin) return;
 
         try {
-            const player = await this.getPlayer(playerId);
+            // Reset to base price and clear bid history
             await this.auctionsRef.child(playerId).update({
-                currentPrice: player.basePrice,
+                currentPrice: this.basePrice,
                 lastBidTeam: null,
                 lastBidTime: null
             });
@@ -448,7 +448,8 @@ class FirebaseDataHandler {
 
             await this.playersMasterRef.child(playerId).update({
                 status: 'unsold',
-                currentPrice: this.basePrice
+                currentPrice: this.basePrice,
+                team: null
             });
 
             // Remove from active auctions
@@ -481,7 +482,7 @@ class FirebaseDataHandler {
                 status: 'sold',
                 soldTo: winningTeam,
                 finalPrice: finalPrice,
-                currentPrice: finalPrice  // Ensure current price matches final price
+                currentPrice: finalPrice
             });
 
             await this.playersMasterRef.child(playerId).update({
@@ -665,7 +666,6 @@ class FirebaseDataHandler {
                             </div>
                             <div class="bid-controls">
                                 <button onclick="window.dataHandler.placeBid('${playerId}', 'A', 10)" class="bid-button">+10 Lakhs</button>
-                                <button onclick="window.dataHandler.placeBid('${playerId}', 'A', 0)" class="bid-button">+0 Lakhs</button>
                             </div>
                         </div>
 
@@ -685,7 +685,6 @@ class FirebaseDataHandler {
                             </div>
                             <div class="bid-controls">
                                 <button onclick="window.dataHandler.placeBid('${playerId}', 'B', 10)" class="bid-button">+10 Lakhs</button>
-                                <button onclick="window.dataHandler.placeBid('${playerId}', 'B', 0)" class="bid-button">+0 Lakhs</button>
                             </div>
                         </div>
                     </div>

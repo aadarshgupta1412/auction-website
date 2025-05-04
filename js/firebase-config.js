@@ -1,13 +1,13 @@
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAswIfovK9BrO_wuMAnUcypwV-QHiVvxhA",
-    authDomain: "auction-2025-7dbbc.firebaseapp.com",
-    projectId: "auction-2025-7dbbc",
-    storageBucket: "auction-2025-7dbbc.firebasestorage.app",
-    messagingSenderId: "864286754740",
-    appId: "1:864286754740:web:56d124bd34f23af33c54e1",
-    measurementId: "G-STXQNEZQ96",
-    databaseURL: "https://auction-2025-7dbbc-default-rtdb.firebaseio.com"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "your-project.firebaseapp.com",
+    projectId: "your-project",
+    storageBucket: "your-project.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abcdef123456",
+    measurementId: "G-ABCDEF123",
+    databaseURL: "https://your-project.firebaseio.com"
 };
 
 // Initialize Firebase
@@ -17,6 +17,9 @@ firebase.initializeApp(firebaseConfig);
 // Initialize services
 const database = firebase.database();
 const auth = firebase.auth();
+
+// Export the services
+export { database, auth };
 
 // Add a test player if database is empty
 console.log("Checking database for players...");
