@@ -1,0 +1,84 @@
+{
+  "players": {
+    "player1": {
+      "id": "1682847162000",
+      "name": "Rahul Kumar",
+      "image": "https://i.pravatar.cc/300?img=11",
+      "pitch": "State-level chess player with experience in organizing tournaments. Also play football as striker. Known for strategic gameplay and quick decision making.",
+      "interestedGames": ["Chess", "Football", "Table Tennis"],
+      "currentPrice": 20,
+      "status": "available",
+      "team": null
+    },
+    "player2": {
+      "id": "1682847162001",
+      "name": "Priya Singh",
+      "image": "https://i.pravatar.cc/300?img=5",
+      "pitch": "Professional badminton player with district-level achievements. Also enjoy carrom and chess. Strong in both singles and doubles formats.",
+      "interestedGames": ["Badminton Singles", "Badminton Doubles", "Carrom", "Chess"],
+      "currentPrice": 20,
+      "status": "available",
+      "team": null
+    },
+    "player3": {
+      "id": "1682847162002",
+      "name": "Alex D'Souza",
+      "image": "https://i.pravatar.cc/300?img=7",
+      "pitch": "The Mafia game master! Also skilled in table tennis and volleyball. Great at team coordination and strategy games.",
+      "interestedGames": ["Mafia", "Table Tennis", "Volleyball", "Chess"],
+      "currentPrice": 20,
+      "status": "available",
+      "team": null
+    },
+    "player4": {
+      "id": "1682847162003",
+      "name": "Meera Patel",
+      "image": "https://i.pravatar.cc/300?img=3",
+      "pitch": "College basketball team captain. Expert in organizing sports events. Also play badminton and carrom.",
+      "interestedGames": ["Basketball", "Badminton Singles", "Carrom"],
+      "currentPrice": 20,
+      "status": "available",
+      "team": null
+    },
+    "player5": {
+      "id": "1682847162004",
+      "name": "Arjun Reddy",
+      "image": "https://i.pravatar.cc/300?img=15",
+      "pitch": "Cricket all-rounder and chess enthusiast. Won multiple tournaments in both sports. Good at mentoring new players.",
+      "interestedGames": ["Cricket", "Chess", "Carrom"],
+      "currentPrice": 20,
+      "status": "available",
+      "team": null
+    },
+    "player6": {
+      "id": "1682847162005",
+      "name": "Sarah Khan",
+      "image": "https://i.pravatar.cc/300?img=9",
+      "pitch": "Professional volleyball player and team strategist. Also enjoy basketball and table tennis. Experienced in organizing large tournaments.",
+      "interestedGames": ["Volleyball", "Basketball", "Table Tennis"],
+      "currentPrice": 20,
+      "status": "available",
+      "team": null
+    },
+    "player7": {
+      "id": "1682847162006",
+      "name": "Dev Sharma",
+      "image": "https://i.pravatar.cc/300?img=12",
+      "pitch": "Football goalkeeper with state-level experience. Also play cricket and chess. Known for quick reflexes and strategic thinking.",
+      "interestedGames": ["Football", "Cricket", "Chess"],
+      "currentPrice": 20,
+      "status": "available",
+      "team": null
+    },
+    "player8": {
+      "id": "1682847162007",
+      "name": "Zara Ahmed",
+      "image": "https://i.pravatar.cc/300?img=2",
+      "pitch": "Table tennis champion with 5 years of tournament experience. Also skilled in badminton and carrom. Great at both singles and doubles.",
+      "interestedGames": ["Table Tennis", "Badminton Singles", "Badminton Doubles", "Carrom"],
+      "currentPrice": 20,
+      "status": "available",
+      "team": null
+    }
+  }
+}

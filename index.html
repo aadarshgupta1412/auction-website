@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Auction</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Tournament Auction</h1>
+        <div class="controls">
+            <button id="admin-login" class="header-button">Admin Login</button>
+            <button id="restore-data" onclick="window.dataHandler.restorePlayersFromJSON()" class="header-button hidden">Restore Players Data</button>
+            <button id="add-player" onclick="window.showAddPlayerModal()" class="header-button hidden">Add Player</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Current Auction Section -->
+        <section class="current-auction">
+            <h3>Current Auction</h3>
+            <p>No active auction at the moment</p>
+        </section>
+
+        <div class="teams-section">
+            <div class="team-panel team-a">
+                <h3>Team A</h3>
+                <div class="team-stats">
+                    <div class="stat">Players: <span id="team-a-players-count">0</span></div>
+                    <div class="stat">Spent: ₹<span id="team-a-spent">0</span> Lakhs</div>
+                    <div class="stat">Remaining: ₹<span id="team-a-remaining">1000</span> Lakhs</div>
+                </div>
+                <div id="team-a-players" class="player-list"></div>
+            </div>
+
+            <div class="team-panel team-b">
+                <h3>Team B</h3>
+                <div class="team-stats">
+                    <div class="stat">Players: <span id="team-b-players-count">0</span></div>
+                    <div class="stat">Spent: ₹<span id="team-b-spent">0</span> Lakhs</div>
+                    <div class="stat">Remaining: ₹<span id="team-b-remaining">1000</span> Lakhs</div>
+                </div>
+                <div id="team-b-players" class="player-list"></div>
+            </div>
+        </div>
+
+        <div class="available-players">
+            <h3>Available Players</h3>
+            <div id="player-grid"></div>
+        </div>
+
+        <!-- Add Player Modal -->
+        <div id="add-player-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Add New Player</h2>
+                <form id="add-player-form" onsubmit="window.handleAddPlayer(event)">
+                    <div class="form-group">
+                        <label for="player-name">Name</label>
+                        <input type="text" id="player-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="player-image">Image URL</label>
+                        <input type="url" id="player-image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="player-pitch">Player Pitch</label>
+                        <textarea id="player-pitch" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="player-games">Interested Games (comma-separated)</label>
+                        <input type="text" id="player-games" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" onclick="window.hideAddPlayerModal()">Cancel</button>
+                        <button type="submit">Add Player</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bidding Modal -->
+        <div id="bidding-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Current Bidding</h2>
+                <div class="player-info">
+                    <h3 id="player-name"></h3>
+                    <p id="current-price"></p>
+                </div>
+                <div class="bid-controls">
+                    <select id="team-name">
+                        <option value="Team A">Team A</option>
+                        <option value="Team B">Team B</option>
+                    </select>
+                    <button onclick="window.increaseBid(document.getElementById('team-name').value)">Place Bid</button>
+                    <button onclick="window.markUnsold()">Mark Unsold</button>
+                    <button onclick="window.assignTeam(document.getElementById('team-name').value)">Assign to Team</button>
+                    <button onclick="window.endBid()">Close</button>
+                </div>
+                <div id="bid-history" class="bid-history"></div>
+            </div>
+        </div>
+
+        <!-- Player Details Modal -->
+        <div id="player-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="modal-player-name"></h2>
+                <img id="modal-player-image" alt="Player Image">
+                <p id="modal-player-pitch"></p>
+                <p>Interested in: <span id="modal-player-games"></span></p>
+                <p>Current Price: <span id="modal-player-price"></span></p>
+                <p id="modal-player-team" class="hidden"></p>
+                <button onclick="document.getElementById('player-modal').classList.add('hidden')">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <!-- Our scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/admin-handler.js"></script>
+    <script src="js/firebase-data-handler.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

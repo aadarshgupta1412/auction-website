@@ -1,0 +1,52 @@
+{
+  "auctions": {
+    "player1": {
+      "id": "1682847162000",
+      "currentPrice": 20,
+      "status": "available",
+      "team": null,
+      "bidHistory": [],
+      "lastBidTime": null,
+      "lastBidder": null
+    },
+    "player2": {
+      "id": "1682847162001",
+      "currentPrice": 20,
+      "status": "available",
+      "team": null,
+      "bidHistory": [],
+      "lastBidTime": null,
+      "lastBidder": null
+    },
+    "player3": {
+      "id": "1682847162002",
+      "currentPrice": 20,
+      "status": "available",
+      "team": null,
+      "bidHistory": [],
+      "lastBidTime": null,
+      "lastBidder": null
+    },
+    "player4": {
+      "id": "1682847162003",
+      "currentPrice": 20,
+      "status": "available",
+      "team": null,
+      "bidHistory": [],
+      "lastBidTime": null,
+      "lastBidder": null
+    }
+  },
+  "teams": {
+    "A": {
+      "budget": 1000,
+      "spent": 0,
+      "players": []
+    },
+    "B": {
+      "budget": 1000,
+      "spent": 0,
+      "players": []
+    }
+  }
+}
